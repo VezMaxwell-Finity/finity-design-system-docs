@@ -45,6 +45,7 @@ Always check `src/components/` before creating a new component. Reuse and extend
 | `Tabs` | `src/components/tabs/Tabs.tsx` | Used for navigation. Props: `items`, `value`, `onChange`. |
 | `Typography` | `src/components/typography/Text.tsx` | Heading and body text components. |
 | `Icons` | `src/components/icons/` | Icon components by category: `arrows.tsx`, `general.tsx`, `feedback.tsx`. Always use these — do not add new icon packages. |
+| `HelperText` | `src/components/helper-text/HelperText.tsx` | Types: `default`, `error`, `success`, `warning`. Renders an icon + message row. |
 | `Nav` | `src/components/nav/Nav.tsx` | Global navigation bar, already included in `src/app/layout.tsx`. Do not add per-page navs. |
 
 ---
@@ -66,3 +67,5 @@ src/
 - Use `forwardRef` for input/form components
 - Mark files `'use client'` only when they use hooks or browser APIs
 - Component files follow the pattern: `ComponentName.tsx` + `index.ts`
+
+Whenever you create a new component, add it to the component table in this file with its path and key props.

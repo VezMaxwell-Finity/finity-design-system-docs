@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { id: '/components/button', label: 'Button' },
   { id: '/components/tabs', label: 'Tabs' },
   { id: '/components/text-field', label: 'Text Field' },
+  { id: '/components/helper-text', label: 'Helper Text' },
 ];
 
 export function Nav() {
