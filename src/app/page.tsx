@@ -31,6 +31,9 @@ export default function Home() {
         <a href="/components/button" className="text-compact-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-default)] pb-1">
           Button
         </a>
+        <a href="/import-mapper" className="text-compact-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-default)] pb-1">
+          Import Mapper
+        </a>
       </nav>
 
       {/* Header */}

@@ -1,7 +1,6 @@
 import { HeadingLG } from '@/components/typography';
 
 const spacingScale = [
-  { token: '0', px: '0', rem: '0' },
   { token: '2', px: '2px', rem: '0.125rem' },
   { token: '4', px: '4px', rem: '0.25rem' },
   { token: '8', px: '8px', rem: '0.5rem' },
@@ -77,17 +76,6 @@ export default function SpacingPage() {
                     className="h-6 bg-[var(--color-coral-400)] rounded"
                     style={{ width: `var(--spacing-${space.token})` }}
                   />
-                  {parseInt(space.token) > 0 && (
-                    <div className="flex gap-[var(--spacing-2)]">
-                      <div
-                        className="size-12 bg-[var(--color-grey-200)] rounded"
-                      />
-                      <div
-                        className="size-12 bg-[var(--color-grey-200)] rounded"
-                        style={{ marginLeft: `calc(var(--spacing-${space.token}) - var(--spacing-2))` }}
-                      />
-                    </div>
-                  )}
                 </div>
                 <span className="text-compact-medium text-[var(--color-text-secondary)]">
                   {space.px}
@@ -97,69 +85,6 @@ export default function SpacingPage() {
                 </span>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Visual Examples */}
-      <section className="mb-16">
-        <HeadingLG className="mb-6">Visual Examples</HeadingLG>
-        <div className="border-t-4 border-[var(--foreground)] pt-8 space-y-12">
-
-          {/* Gap Example */}
-          <div>
-            <h3 className="text-heading-sm mb-4">Gap / Flex Gap</h3>
-            <div className="space-y-6">
-              {[4, 8, 16, 24, 32].map((gap) => (
-                <div key={gap} className="flex items-center gap-8">
-                  <span className="text-compact-semibold w-20">gap-{gap}</span>
-                  <div
-                    className="flex items-center"
-                    style={{ gap: `var(--spacing-${gap})` }}
-                  >
-                    <div className="size-12 bg-[var(--color-teal-400)] rounded" />
-                    <div className="size-12 bg-[var(--color-teal-400)] rounded" />
-                    <div className="size-12 bg-[var(--color-teal-400)] rounded" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Padding Example */}
-          <div>
-            <h3 className="text-heading-sm mb-4">Padding</h3>
-            <div className="flex flex-wrap gap-8">
-              {[8, 16, 24, 32].map((pad) => (
-                <div key={pad} className="flex flex-col items-center gap-2">
-                  <div
-                    className="bg-[var(--color-coral-100)] rounded-lg"
-                    style={{ padding: `var(--spacing-${pad})` }}
-                  >
-                    <div className="size-12 bg-[var(--color-coral-500)] rounded" />
-                  </div>
-                  <span className="text-compact-medium">p-{pad}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Margin Example */}
-          <div>
-            <h3 className="text-heading-sm mb-4">Margin</h3>
-            <div className="flex flex-wrap gap-8">
-              {[8, 16, 24, 32].map((margin) => (
-                <div key={margin} className="flex flex-col items-center gap-2">
-                  <div className="bg-[var(--color-grey-100)] rounded-lg p-1">
-                    <div
-                      className="size-12 bg-[var(--color-teal-500)] rounded"
-                      style={{ margin: `var(--spacing-${margin})` }}
-                    />
-                  </div>
-                  <span className="text-compact-medium">m-{margin}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
