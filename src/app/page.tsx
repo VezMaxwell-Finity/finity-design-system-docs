@@ -1,239 +1,300 @@
-import {
-  HeadingXL,
-  HeadingLG,
-  HeadingMD,
-  HeadingSM,
-  BodySemibold,
-  BodyMedium,
-  Body,
-  CompactSemibold,
-  CompactMedium,
-  SmallSemibold,
-} from '@/components/typography';
+'use client';
 
-export default function Home() {
+import { useState } from 'react';
+import { Button } from '@/components/button';
+import { Tabs } from '@/components/tabs';
+import { TextField } from '@/components/text-field';
+import {
+  HeadingXL, HeadingLG, HeadingMD, HeadingSM,
+  BodySemibold, BodyMedium, Body, CompactMedium,
+} from '@/components/typography';
+import {
+  Add, Search, Download, Settings, ChevronRight,
+  Mail, User, Home, Check, Close,
+  ErrorFilled, SuccessFilled, WarningFilled, InfoFilled,
+} from '@/components/icons';
+
+const tabItems = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'employees', label: 'Employees', badge: 24 },
+  { id: 'payroll', label: 'Payroll' },
+  { id: 'settings', label: 'Settings' },
+];
+
+const greySwatches = ['#FAFAFA', '#F5F5F5', '#E5E5E5', '#D4D4D4', '#A3A3A3', '#737373', '#525252', '#404040', '#262626', '#171717'];
+const coralSwatches = ['#FFF4ED', '#FEE6D6', '#FCC8AC', '#FAA277', '#F77445', '#F44C1B', '#E53311', '#BE2310', '#971D15', '#7A1B14'];
+
+function isDark(hex: string) {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return (0.299 * r + 0.587 * g + 0.114 * b) / 255 < 0.5;
+}
+
+export default function IndexPage() {
+  const [activeTab, setActiveTab] = useState('overview');
+  const [emailValue, setEmailValue] = useState('');
+  const [searchValue, setSearchValue] = useState('');
+
   return (
-    <main className="min-h-screen p-8 md:p-16 max-w-4xl mx-auto">
-      {/* Navigation */}
-      <nav className="mb-8 flex gap-4 flex-wrap">
-        <a href="/" className="text-compact-semibold text-[var(--color-coral-500)] border-b-2 border-[var(--color-coral-500)] pb-1">
-          Typography
-        </a>
-        <a href="/colors" className="text-compact-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-default)] pb-1">
-          Colours
-        </a>
-        <a href="/spacing" className="text-compact-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-default)] pb-1">
-          Spacing
-        </a>
-        <a href="/icons" className="text-compact-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-default)] pb-1">
-          Icons
-        </a>
-        <a href="/components/button" className="text-compact-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-default)] pb-1">
-          Button
-        </a>
-        <a href="/import-mapper" className="text-compact-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-default)] pb-1">
-          Import Mapper
-        </a>
-      </nav>
+    <main>
 
       {/* Header */}
       <header className="mb-16">
         <p className="text-compact-medium text-[var(--color-text-tertiary)] mb-2">
-          Foundation
+          Finity Design System
         </p>
         <h1 className="text-[3rem] font-semibold leading-tight mb-4">
-          Typography
+          All components
         </h1>
         <p className="text-[1.5rem] font-medium text-[var(--color-text-secondary)] leading-relaxed">
-          Our typography is flexible and modular, with a focus on legibility and accessibility.
+          The shared component library and design tokens for building Finity products.
         </p>
       </header>
 
-      {/* Font Family */}
-      <section className="mb-16 pb-8 border-b border-[var(--color-text-tertiary)]/20">
-        <p className="text-compact-medium text-[var(--color-text-tertiary)] mb-2">
-          Font family
-        </p>
-        <p className="text-[3.5rem] font-medium mb-6">
-          PP Neue Montreal
-        </p>
-        <p className="text-body-medium text-[var(--color-text-secondary)]">
-          Note: You&apos;ll need to obtain and install the PP Neue Montreal font for the design system to render correctly.
-          <br />
-          The system falls back to system-ui if the font is not available.
-        </p>
-      </section>
+      {/* ─── FOUNDATIONS ─────────────────────────────────────────── */}
 
-      {/* Headings */}
       <section className="mb-16">
-        <HeadingLG className="mb-6">Headings</HeadingLG>
-        <div className="border-t-4 border-[var(--foreground)] pt-8 space-y-8">
-          <TypographyRow
-            token="text-heading-xl"
-            specs="32px / 40px / 0.2px / Semibold"
-          >
-            <HeadingXL>Heading Extra Large / Semibold</HeadingXL>
-          </TypographyRow>
-
-          <TypographyRow
-            token="text-heading-lg"
-            specs="24px / 32px / 0.2px / Semibold"
-          >
-            <HeadingLG>Heading Large / Semibold</HeadingLG>
-          </TypographyRow>
-
-          <TypographyRow
-            token="text-heading-md"
-            specs="20px / 28px / 0.2px / Semibold"
-          >
-            <HeadingMD>Heading Medium / Semibold</HeadingMD>
-          </TypographyRow>
-
-          <TypographyRow
-            token="text-heading-sm"
-            specs="18px / 25px / 0.2px / Semibold"
-          >
-            <HeadingSM>Heading Small / Semibold</HeadingSM>
-          </TypographyRow>
+        <div className="flex items-baseline justify-between mb-6">
+          <HeadingLG>Typography</HeadingLG>
+          <a href="/" className="text-compact-medium text-[var(--color-coral-500)] hover:underline">View all →</a>
         </div>
-      </section>
-
-      {/* Body */}
-      <section className="mb-16">
-        <HeadingLG className="mb-6">Body</HeadingLG>
-        <div className="border-t-4 border-[var(--foreground)] pt-8 space-y-8">
-          <TypographyRow
-            token="text-body-semibold"
-            specs="16px / 22px / 0.35px / Semibold"
-          >
-            <BodySemibold>Body / Semibold</BodySemibold>
-          </TypographyRow>
-
-          <TypographyRow
-            token="text-body-medium"
-            specs="16px / 22px / 0.35px / Medium"
-          >
-            <BodyMedium>Body / Medium</BodyMedium>
-          </TypographyRow>
-
-          <TypographyRow
-            token="text-body-regular"
-            specs="16px / 22px / 0.35px / Regular"
-          >
-            <Body>Body / Regular</Body>
-          </TypographyRow>
-        </div>
-      </section>
-
-      {/* Compact */}
-      <section className="mb-16">
-        <HeadingLG className="mb-6">Compact</HeadingLG>
-        <div className="border-t-4 border-[var(--foreground)] pt-8 space-y-8">
-          <TypographyRow
-            token="text-compact-semibold"
-            specs="14px / 20px / 0.3px / Semibold"
-          >
-            <CompactSemibold>Compact / Semibold</CompactSemibold>
-          </TypographyRow>
-
-          <TypographyRow
-            token="text-compact-medium"
-            specs="14px / 20px / 0.3px / Medium"
-          >
-            <CompactMedium>Compact / Medium</CompactMedium>
-          </TypographyRow>
-        </div>
-      </section>
-
-      {/* Small */}
-      <section className="mb-16">
-        <HeadingLG className="mb-6">Small</HeadingLG>
-        <div className="border-t-4 border-[var(--foreground)] pt-8 space-y-8">
-          <TypographyRow
-            token="text-small-semibold"
-            specs="12px / 16px / 0.3px / Semibold"
-          >
-            <SmallSemibold>Small / Semibold</SmallSemibold>
-          </TypographyRow>
-        </div>
-      </section>
-
-      {/* Usage Examples */}
-      <section className="mb-16">
-        <HeadingLG className="mb-6">Usage Examples</HeadingLG>
         <div className="border-t-4 border-[var(--foreground)] pt-8 space-y-6">
-          <div className="p-6 bg-[var(--foreground)]/5 rounded-lg">
-            <code className="text-compact-medium block mb-4">
-              {`// Using CSS utility classes`}
-            </code>
-            <pre className="text-compact-medium text-[var(--color-text-secondary)] overflow-x-auto">
-{`<h1 className="text-heading-xl">Page Title</h1>
-<p className="text-body-medium">Body text content</p>
-<span className="text-compact-semibold">Label</span>`}
-            </pre>
+          <div className="grid md:grid-cols-[140px_1fr] gap-4 items-baseline pb-5 border-b border-[var(--color-border-subtle)]">
+            <span className="text-compact-medium text-[var(--color-text-tertiary)]">text-heading-xl</span>
+            <HeadingXL>Heading Extra Large</HeadingXL>
           </div>
-
-          <div className="p-6 bg-[var(--foreground)]/5 rounded-lg">
-            <code className="text-compact-medium block mb-4">
-              {`// Using React components`}
-            </code>
-            <pre className="text-compact-medium text-[var(--color-text-secondary)] overflow-x-auto">
-{`import { HeadingXL, BodyMedium, CompactSemibold } from '@/components/typography';
-
-<HeadingXL>Page Title</HeadingXL>
-<BodyMedium>Body text content</BodyMedium>
-<CompactSemibold>Label</CompactSemibold>`}
-            </pre>
+          <div className="grid md:grid-cols-[140px_1fr] gap-4 items-baseline pb-5 border-b border-[var(--color-border-subtle)]">
+            <span className="text-compact-medium text-[var(--color-text-tertiary)]">text-heading-lg</span>
+            <HeadingLG>Heading Large</HeadingLG>
+          </div>
+          <div className="grid md:grid-cols-[140px_1fr] gap-4 items-baseline pb-5 border-b border-[var(--color-border-subtle)]">
+            <span className="text-compact-medium text-[var(--color-text-tertiary)]">text-heading-md</span>
+            <HeadingMD>Heading Medium</HeadingMD>
+          </div>
+          <div className="grid md:grid-cols-[140px_1fr] gap-4 items-baseline pb-5 border-b border-[var(--color-border-subtle)]">
+            <span className="text-compact-medium text-[var(--color-text-tertiary)]">text-heading-sm</span>
+            <HeadingSM>Heading Small</HeadingSM>
+          </div>
+          <div className="grid md:grid-cols-[140px_1fr] gap-4 items-baseline pb-5 border-b border-[var(--color-border-subtle)]">
+            <span className="text-compact-medium text-[var(--color-text-tertiary)]">text-body-semibold</span>
+            <BodySemibold>Body Semibold</BodySemibold>
+          </div>
+          <div className="grid md:grid-cols-[140px_1fr] gap-4 items-baseline pb-5 border-b border-[var(--color-border-subtle)]">
+            <span className="text-compact-medium text-[var(--color-text-tertiary)]">text-body-medium</span>
+            <BodyMedium>Body Medium</BodyMedium>
+          </div>
+          <div className="grid md:grid-cols-[140px_1fr] gap-4 items-baseline">
+            <span className="text-compact-medium text-[var(--color-text-tertiary)]">text-body-regular</span>
+            <Body>Body Regular</Body>
           </div>
         </div>
       </section>
+
+      <section className="mb-16">
+        <div className="flex items-baseline justify-between mb-6">
+          <HeadingLG>Colours</HeadingLG>
+          <a href="/colors" className="text-compact-medium text-[var(--color-coral-500)] hover:underline">View all →</a>
+        </div>
+        <div className="border-t-4 border-[var(--foreground)] pt-8 space-y-8">
+          <div>
+            <CompactMedium className="text-[var(--color-text-tertiary)] mb-3 block">Grey / Neutral</CompactMedium>
+            <div className="flex gap-2">
+              {greySwatches.map((hex) => (
+                <div key={hex} className="flex-1">
+                  <div
+                    className="rounded-md w-full h-10 border border-[var(--color-border-subtle)]"
+                    style={{ backgroundColor: hex }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <CompactMedium className="text-[var(--color-text-tertiary)] mb-3 block">Coral</CompactMedium>
+            <div className="flex gap-2">
+              {coralSwatches.map((hex) => (
+                <div key={hex} className="flex-1">
+                  <div
+                    className="rounded-md w-full h-10 border border-[var(--color-border-subtle)]"
+                    style={{ backgroundColor: hex }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <CompactMedium className="text-[var(--color-text-tertiary)] mb-3 block">Semantic</CompactMedium>
+            <div className="flex gap-3">
+              {[
+                { label: 'Error', color: '#EF4444' },
+                { label: 'Warning', color: '#EAB308' },
+                { label: 'Success', color: '#22C55E' },
+              ].map(({ label, color }) => (
+                <div key={label} className="flex items-center gap-2">
+                  <div className="rounded-full w-4 h-4" style={{ backgroundColor: color }} />
+                  <span className="text-compact-medium text-[var(--color-text-secondary)]">{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mb-16">
+        <div className="flex items-baseline justify-between mb-6">
+          <HeadingLG>Icons</HeadingLG>
+          <a href="/icons" className="text-compact-medium text-[var(--color-coral-500)] hover:underline">View all →</a>
+        </div>
+        <div className="border-t-4 border-[var(--foreground)] pt-8">
+          <div className="flex flex-wrap gap-6">
+            {[
+              { icon: <Home size={24} />, name: 'Home' },
+              { icon: <Search size={24} />, name: 'Search' },
+              { icon: <User size={24} />, name: 'User' },
+              { icon: <Mail size={24} />, name: 'Mail' },
+              { icon: <Settings size={24} />, name: 'Settings' },
+              { icon: <Add size={24} />, name: 'Add' },
+              { icon: <Check size={24} />, name: 'Check' },
+              { icon: <Close size={24} />, name: 'Close' },
+              { icon: <Download size={24} />, name: 'Download' },
+              { icon: <ChevronRight size={24} />, name: 'ChevronRight' },
+              { icon: <ErrorFilled size={24} />, name: 'ErrorFilled' },
+              { icon: <SuccessFilled size={24} />, name: 'SuccessFilled' },
+              { icon: <WarningFilled size={24} />, name: 'WarningFilled' },
+              { icon: <InfoFilled size={24} />, name: 'InfoFilled' },
+            ].map(({ icon, name }) => (
+              <div key={name} className="flex flex-col items-center gap-2 w-[60px]">
+                {icon}
+                <span className="text-[10px] text-[var(--color-text-tertiary)] text-center leading-tight">{name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── COMPONENTS ───────────────────────────────────────────── */}
+
+      <section className="mb-16">
+        <div className="flex items-baseline justify-between mb-6">
+          <HeadingLG>Button</HeadingLG>
+          <a href="/components/button" className="text-compact-medium text-[var(--color-coral-500)] hover:underline">View all →</a>
+        </div>
+        <div className="border-t-4 border-[var(--foreground)] pt-8 space-y-8">
+
+          <div>
+            <p className="text-compact-semibold text-[var(--color-text-secondary)] mb-4">Variants</p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Button variant="primary">Primary</Button>
+              <Button variant="secondary">Secondary</Button>
+              <Button variant="tertiary">Tertiary</Button>
+              <Button variant="emphasis">Emphasis</Button>
+              <Button variant="danger">Danger</Button>
+            </div>
+          </div>
+
+          <div>
+            <p className="text-compact-semibold text-[var(--color-text-secondary)] mb-4">With icons</p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Button variant="primary" iconLeft={<Add size={18} />}>Add employee</Button>
+              <Button variant="secondary" iconRight={<ChevronRight size={18} />}>Continue</Button>
+              <Button variant="secondary" iconOnly><Download size={18} /></Button>
+              <Button variant="primary" loading>Processing</Button>
+              <Button variant="secondary" disabled>Disabled</Button>
+            </div>
+          </div>
+
+          <div>
+            <p className="text-compact-semibold text-[var(--color-text-secondary)] mb-4">Sizes</p>
+            <div className="flex flex-wrap items-end gap-4">
+              <Button variant="primary" size="large">Large</Button>
+              <Button variant="primary" size="medium">Medium</Button>
+              <Button variant="primary" size="small">Small</Button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section className="mb-16">
+        <div className="flex items-baseline justify-between mb-6">
+          <HeadingLG>Tabs</HeadingLG>
+          <a href="/components/tabs" className="text-compact-medium text-[var(--color-coral-500)] hover:underline">View all →</a>
+        </div>
+        <div className="border-t-4 border-[var(--foreground)] pt-8 space-y-8">
+          <div>
+            <p className="text-compact-semibold text-[var(--color-text-secondary)] mb-4">Medium (default)</p>
+            <Tabs items={tabItems} value={activeTab} onChange={setActiveTab} />
+          </div>
+          <div>
+            <p className="text-compact-semibold text-[var(--color-text-secondary)] mb-4">Small</p>
+            <Tabs items={tabItems} value={activeTab} onChange={setActiveTab} size="small" />
+          </div>
+        </div>
+      </section>
+
+      <section className="mb-16">
+        <div className="flex items-baseline justify-between mb-6">
+          <HeadingLG>Text field</HeadingLG>
+          <a href="/components/text-field" className="text-compact-medium text-[var(--color-coral-500)] hover:underline">View all →</a>
+        </div>
+        <div className="border-t-4 border-[var(--foreground)] pt-8">
+          <div className="grid md:grid-cols-2 gap-6 max-w-[700px]">
+
+            <TextField
+              label="Email address"
+              placeholder="you@example.com"
+              value={emailValue}
+              onChange={(e) => setEmailValue(e.target.value)}
+              onClear={() => setEmailValue('')}
+              helperText="We'll never share your email."
+            />
+
+            <TextField
+              label="Search"
+              placeholder="Search employees…"
+              suffixIcon={<Search size={20} />}
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              onClear={() => setSearchValue('')}
+            />
+
+            <TextField
+              label="Amount"
+              placeholder="0.00"
+              prefix="£"
+              value=""
+              onChange={() => {}}
+            />
+
+            <TextField
+              label="Invalid input"
+              placeholder="Enter value"
+              value="bad value"
+              onChange={() => {}}
+              errorMessage="This field contains an error."
+            />
+
+            <TextField
+              label="With suffix"
+              placeholder="Enter percentage"
+              suffix="%"
+              value=""
+              onChange={() => {}}
+            />
+
+            <TextField
+              label="Disabled"
+              placeholder="Not editable"
+              value=""
+              onChange={() => {}}
+              disabled
+            />
+
+          </div>
+        </div>
+      </section>
+
     </main>
-  );
-}
-
-function TypographyRow({
-  token,
-  specs,
-  children,
-}: {
-  token: string;
-  specs: string;
-  children: React.ReactNode;
-}) {
-  // Parse specs string like "32px / 40px / 0.2px / Semibold"
-  const [fontSize, lineHeight, letterSpacing, weight] = specs.split(' / ');
-
-  return (
-    <div className="grid md:grid-cols-[180px_1fr_200px] gap-4 md:gap-8 items-center pb-6 border-b border-[var(--foreground)]/10">
-      {/* Token badge */}
-      <div>
-        <span className="inline-block bg-[var(--foreground)]/10 px-3 py-1.5 rounded-full text-compact-medium">
-          {token}
-        </span>
-      </div>
-
-      {/* Preview */}
-      <div>{children}</div>
-
-      {/* Specs */}
-      <div className="text-compact-medium text-[var(--color-text-secondary)] space-y-0.5">
-        <div className="flex justify-between gap-4">
-          <span className="text-[var(--color-text-tertiary)]">Size</span>
-          <span>{fontSize}</span>
-        </div>
-        <div className="flex justify-between gap-4">
-          <span className="text-[var(--color-text-tertiary)]">Line height</span>
-          <span>{lineHeight}</span>
-        </div>
-        <div className="flex justify-between gap-4">
-          <span className="text-[var(--color-text-tertiary)]">Tracking</span>
-          <span>{letterSpacing}</span>
-        </div>
-        <div className="flex justify-between gap-4">
-          <span className="text-[var(--color-text-tertiary)]">Weight</span>
-          <span>{weight}</span>
-        </div>
-      </div>
-    </div>
   );
 }

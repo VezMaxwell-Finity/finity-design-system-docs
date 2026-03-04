@@ -80,7 +80,7 @@ export function Tabs({
           >
             <span className="text-compact-semibold">{item.label}</span>
             {item.badge && (
-              <span className="inline-flex items-center justify-center rounded-full px-[var(--spacing-4)] py-[2px] text-small-semibold bg-[var(--color-grey-100)] text-[var(--color-text-secondary)]">
+              <span className="inline-flex items-center justify-center rounded-full px-[var(--spacing-4)] py-[var(--spacing-2)] text-small-semibold bg-[var(--color-grey-100)] text-[var(--color-text-secondary)]">
                 {item.badge}
               </span>
             )}

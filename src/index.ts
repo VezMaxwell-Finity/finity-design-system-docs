@@ -1,5 +1,6 @@
 // Components
 export * from './components/button';
+export * from './components/text-field';
 export * from './components/icons';
 export * from './components/tabs';
 export * from './components/typography';

@@ -15,29 +15,7 @@ export default function TabsPage() {
   const [activeTab, setActiveTab] = useState<string>('overview');
 
   return (
-    <main className="min-h-screen p-8 md:p-16 max-w-6xl mx-auto">
-      {/* Navigation */}
-      <nav className="mb-8 flex gap-4 flex-wrap">
-        <a href="/" className="text-compact-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-default)] pb-1">
-          Typography
-        </a>
-        <a href="/colors" className="text-compact-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-default)] pb-1">
-          Colours
-        </a>
-        <a href="/spacing" className="text-compact-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-default)] pb-1">
-          Spacing
-        </a>
-        <a href="/icons" className="text-compact-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-default)] pb-1">
-          Icons
-        </a>
-        <a href="/components/button" className="text-compact-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-default)] pb-1">
-          Button
-        </a>
-        <a href="/components/tabs" className="text-compact-semibold text-[var(--color-coral-500)] border-b-2 border-[var(--color-coral-500)] pb-1">
-          Tabs
-        </a>
-      </nav>
-
+    <main>
       {/* Header */}
       <header className="mb-16">
         <p className="text-compact-medium text-[var(--color-text-tertiary)] mb-2">

@@ -16,15 +16,15 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const sizeStyles: Record<ButtonSize, string> = {
-  large: 'h-12 px-4 text-base gap-2',
-  medium: 'h-10 px-3 text-sm gap-2',
-  small: 'h-8 px-2 text-sm gap-1.5',
+  large: 'h-[var(--spacing-48)] px-[var(--spacing-16)] text-base gap-[var(--spacing-8)]',
+  medium: 'h-[var(--spacing-40)] px-[var(--spacing-12)] text-sm gap-[var(--spacing-8)]',
+  small: 'h-[var(--spacing-32)] px-[var(--spacing-8)] text-sm gap-[var(--spacing-4)]',
 };
 
 const iconOnlySizeStyles: Record<ButtonSize, string> = {
-  large: 'h-12 w-12',
-  medium: 'h-10 w-10',
-  small: 'h-8 w-8',
+  large: 'h-[var(--spacing-48)] w-[var(--spacing-48)]',
+  medium: 'h-[var(--spacing-40)] w-[var(--spacing-40)]',
+  small: 'h-[var(--spacing-32)] w-[var(--spacing-32)]',
 };
 
 const variantStyles: Record<ButtonVariant, string> = {
