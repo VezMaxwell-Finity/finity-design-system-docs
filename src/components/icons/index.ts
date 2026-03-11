@@ -42,6 +42,7 @@ export {
   Edit,
   File,
   Filter,
+  Flag,
   Globe,
   Home,
   Help,

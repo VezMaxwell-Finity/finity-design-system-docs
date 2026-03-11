@@ -46,7 +46,11 @@ Always check `src/components/` before creating a new component. Reuse and extend
 | `Typography` | `src/components/typography/Text.tsx` | Heading and body text components. |
 | `Icons` | `src/components/icons/` | Icon components by category: `arrows.tsx`, `general.tsx`, `feedback.tsx`. Always use these — do not add new icon packages. |
 | `HelperText` | `src/components/helper-text/HelperText.tsx` | Types: `default`, `error`, `success`, `warning`. Renders an icon + message row. |
-| `Nav` | `src/components/nav/Nav.tsx` | Global navigation bar, already included in `src/app/layout.tsx`. Do not add per-page navs. |
+| `Nav` | `src/components/nav/Nav.tsx` | Legacy tab nav — no longer used in layout. |
+| `Sidebar` | `src/components/sidebar/Sidebar.tsx` | Global dark sidebar navigation, included in `src/app/layout.tsx`. Add new routes to the `NAV` array here, not in Nav.tsx. Sections: Foundations, Components. |
+| `SearchField` | `src/components/search-field/SearchField.tsx` | Single-line search input. Props: `value`, `onChange`, `onClear`, `placeholder`. Shows clear button when value is non-empty. |
+| `TextArea` | `src/components/text-area/TextArea.tsx` | Multi-line text input. Props: `label`, `helperText`, `errorMessage`, `maxLength` (shows character counter), `readOnly`. |
+| `Checkbox` | `src/components/checkbox/Checkbox.tsx` | Checkbox input. Props: `label` (ReactNode), `checked`, `onChange`, `indeterminate`, `error`, `disabled`. Supports controlled and uncontrolled usage. |
 
 ---
 
@@ -68,4 +72,7 @@ src/
 - Mark files `'use client'` only when they use hooks or browser APIs
 - Component files follow the pattern: `ComponentName.tsx` + `index.ts`
 
-Whenever you create a new component, add it to the component table in this file with its path and key props.
+Whenever you create a new component:
+1. Add it to the component table in this file with its path and key props
+2. Add a route entry to the `NAV` array in `src/components/sidebar/Sidebar.tsx` under the Components section
+3. Create a documentation page at `src/app/components/<name>/page.tsx`

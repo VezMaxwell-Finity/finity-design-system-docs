@@ -1,4 +1,4 @@
-import { HeadingLG } from '@/components/typography';
+import { Section, CodeBlock } from '@/app/_components/doc';
 import * as Icons from '@/components/icons';
 
 const arrowIcons = [
@@ -31,6 +31,7 @@ const generalIcons = [
   { name: 'Edit', component: Icons.Edit },
   { name: 'File', component: Icons.File },
   { name: 'Filter', component: Icons.Filter },
+  { name: 'Flag', component: Icons.Flag },
   { name: 'Globe', component: Icons.Globe },
   { name: 'Home', component: Icons.Home },
   { name: 'Help', component: Icons.Help },
@@ -57,86 +58,74 @@ const feedbackIcons = [
   { name: 'CloseFilled', component: Icons.CloseFilled },
 ];
 
+function IconGrid({ icons }: { icons: { name: string; component: React.ComponentType<Icons.IconProps> }[] }) {
+  return (
+    <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-[var(--spacing-4)]">
+      {icons.map(({ name, component: IconComponent }) => (
+        <div
+          key={name}
+          className="flex flex-col items-center gap-[var(--spacing-8)] p-[var(--spacing-12)] rounded-lg hover:bg-[var(--color-bg-subtle)] transition-colors"
+        >
+          <IconComponent size={24} />
+          <span className="text-[10px] text-[var(--color-text-tertiary)] text-center leading-tight truncate w-full">
+            {name}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function IconsPage() {
   return (
     <main>
-      {/* Header */}
-      <header className="mb-16">
-        <p className="text-compact-medium text-[var(--color-text-tertiary)] mb-2">
-          Foundation
-        </p>
-        <h1 className="text-[3rem] font-semibold leading-tight mb-4">
-          Icons
-        </h1>
-        <p className="text-[1.5rem] font-medium text-[var(--color-text-secondary)] leading-relaxed">
-          Icons are visual symbols designed to quickly convey actions, concepts, and categories,
-          making it easier for users to understand and navigate an interface.
-        </p>
-      </header>
 
-      {/* Arrow Icons */}
-      <section className="mb-16">
-        <HeadingLG className="mb-4">Arrows</HeadingLG>
-        <p className="text-body-medium text-[var(--color-text-secondary)] mb-6">
-          Used to indicate direction, navigation, or progression. They appear in buttons, dropdowns, paginations, and other navigational elements to guide user flow.
-        </p>
-        <div className="border-t-4 border-[var(--foreground)] pt-8">
+      {/* ─── Hero ──────────────────────────────────────────────── */}
+      <section className="bg-[var(--color-bg-subtle)] px-[var(--spacing-64)] py-[var(--spacing-64)] min-h-[480px] flex items-center">
+        <div className="w-full">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)] mb-[var(--spacing-16)]">
+            Foundation
+          </p>
+          <h1 className="text-[5rem] font-semibold leading-[1] tracking-[-0.02em] text-[var(--color-text-default)] mb-[var(--spacing-24)]">
+            Icons
+          </h1>
+          <p className="text-[1.125rem] leading-[1.7] text-[var(--color-text-secondary)] max-w-[560px]">
+            Visual symbols that quickly convey actions, concepts, and categories — making it easier for
+            users to understand and navigate an interface at a glance.
+          </p>
+        </div>
+      </section>
+
+      {/* ─── Content ───────────────────────────────────────────── */}
+      <div className="max-w-5xl mx-auto px-[var(--spacing-64)] py-[var(--spacing-80)]">
+
+        <Section title="Arrows" description="Used to indicate direction, navigation, or progression. They appear in buttons, dropdowns, and other navigational elements.">
           <IconGrid icons={arrowIcons} />
-        </div>
-      </section>
+        </Section>
 
-      {/* General Icons */}
-      <section className="mb-16">
-        <HeadingLG className="mb-4">General</HeadingLG>
-        <p className="text-body-medium text-[var(--color-text-secondary)] mb-6">
-          Widely used across our platforms to visually represent general functions and menu options.
-        </p>
-        <div className="border-t-4 border-[var(--foreground)] pt-8">
+        <Section title="General" description="Widely used across platforms to visually represent general functions and menu options.">
           <IconGrid icons={generalIcons} />
-        </div>
-      </section>
+        </Section>
 
-      {/* Feedback Icons */}
-      <section className="mb-16">
-        <HeadingLG className="mb-4">Feedback / Helper</HeadingLG>
-        <p className="text-body-medium text-[var(--color-text-secondary)] mb-6">
-          These icons indicate action status or system response and are consistently used in alerts, toasts, and notifications for clarity.
-        </p>
-        <div className="border-t-4 border-[var(--foreground)] pt-8">
+        <Section title="Feedback" description="Indicate action status or system response. Consistently used in alerts, helper text, and notifications.">
           <IconGrid icons={feedbackIcons} />
-        </div>
-      </section>
+        </Section>
 
-      {/* Sizes */}
-      <section className="mb-16">
-        <HeadingLG className="mb-4">Sizes</HeadingLG>
-        <p className="text-body-medium text-[var(--color-text-secondary)] mb-6">
-          Icons can be rendered at different sizes using the size prop.
-        </p>
-        <div className="border-t-4 border-[var(--foreground)] pt-8">
-          <div className="flex items-end gap-8">
+        <Section title="Sizes" description="Icons can be rendered at different sizes using the size prop.">
+          <div className="flex items-end gap-[var(--spacing-32)]">
             {[16, 20, 24, 32, 40, 48].map((size) => (
-              <div key={size} className="flex flex-col items-center gap-2">
+              <div key={size} className="flex flex-col items-center gap-[var(--spacing-12)]">
                 <Icons.Home size={size} />
-                <span className="text-compact-medium text-[var(--color-text-tertiary)]">{size}px</span>
+                <span className="text-[11px] text-[var(--color-text-tertiary)]">{size}px</span>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </Section>
 
-      {/* Usage */}
-      <section className="mb-16">
-        <HeadingLG className="mb-6">Usage</HeadingLG>
-        <div className="border-t-4 border-[var(--foreground)] pt-8 space-y-6">
-          <div className="p-6 bg-[var(--color-bg-muted)] rounded-lg">
-            <code className="text-compact-medium block mb-4">
-              {`// Import and use icons`}
-            </code>
-            <pre className="text-compact-medium text-[var(--color-text-secondary)] overflow-x-auto">
-{`import { Home, Search, ChevronRight, ErrorFilled } from '@/components/icons';
+        <Section title="Usage" last>
+          <CodeBlock>{`import { Home, Search, ChevronRight, ErrorFilled } from '@finity/design-system';
 
-// Default size (24px), inherits color
+// Default size (24px), inherits currentColor
 <Home />
 
 // Custom size
@@ -146,49 +135,13 @@ export default function IconsPage() {
 <ChevronRight color="var(--color-coral-500)" />
 
 // Feedback icons have semantic colors by default
-<ErrorFilled />  {/* Red */}
-<SuccessFilled />  {/* Green */}`}
-            </pre>
-          </div>
+<ErrorFilled />    // Red
+<SuccessFilled />  // Green
+<WarningFilled />  // Yellow
+<InfoFilled />     // Grey`}</CodeBlock>
+        </Section>
 
-          <div className="p-6 bg-[var(--color-bg-muted)] rounded-lg">
-            <code className="text-compact-medium block mb-4">
-              {`// Adding custom icons from Figma`}
-            </code>
-            <pre className="text-compact-medium text-[var(--color-text-secondary)] overflow-x-auto">
-{`// 1. Export SVG from Figma (24x24 viewBox)
-// 2. Use createIcon helper:
-
-import { createIcon } from '@/components/icons';
-
-export const MyIcon = createIcon(
-  <path d="M12 2L2 7l10 5 10-5-10-5z" />,
-  'MyIcon'
-);
-
-// 3. Or create a custom component for filled icons`}
-            </pre>
-          </div>
-        </div>
-      </section>
+      </div>
     </main>
-  );
-}
-
-function IconGrid({ icons }: { icons: { name: string; component: React.ComponentType<Icons.IconProps> }[] }) {
-  return (
-    <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-4">
-      {icons.map(({ name, component: IconComponent }) => (
-        <div
-          key={name}
-          className="flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-[var(--color-bg-muted)] transition-colors"
-        >
-          <IconComponent size={24} />
-          <span className="text-[10px] text-[var(--color-text-tertiary)] text-center truncate w-full">
-            {name}
-          </span>
-        </div>
-      ))}
-    </div>
   );
 }

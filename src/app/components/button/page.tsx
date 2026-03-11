@@ -1,6 +1,6 @@
 import { Button } from '@/components/button';
-import { HeadingLG } from '@/components/typography';
-import { Add, ChevronRight, Download, Settings } from '@/components/icons';
+import { Add, ChevronRight, Settings } from '@/components/icons';
+import { Section, DemoTable, CodeBlock } from '@/app/_components/doc';
 
 const VARIANTS = [
   { id: 'primary',   label: 'Primary' },
@@ -11,125 +11,93 @@ const VARIANTS = [
 ] as const;
 
 const SIZES = [
-  { id: 'large',  label: 'Large (48px)' },
-  { id: 'medium', label: 'Medium (40px)' },
-  { id: 'small',  label: 'Small (32px)' },
+  { id: 'large',  label: 'Large',  sub: '48px' },
+  { id: 'medium', label: 'Medium', sub: '40px' },
+  { id: 'small',  label: 'Small',  sub: '32px' },
 ] as const;
 
 export default function ButtonPage() {
   return (
     <main>
-      {/* Header */}
-      <header className="mb-[64px]">
-        <p className="text-compact-medium text-[var(--color-text-tertiary)] mb-[8px]">Component → Action</p>
-        <h1 className="text-[3rem] font-semibold leading-tight mb-[16px]">Button</h1>
-        <p className="text-[1.5rem] font-medium text-[var(--color-text-secondary)] leading-relaxed">
-          Buttons trigger actions or navigate users to another page. They come in multiple styles to guide users and emphasise key actions in a flow.
-        </p>
-      </header>
 
-      {/* Live preview */}
-      <section className="mb-[64px] p-[48px] bg-[var(--color-bg-subtle)] rounded-xl flex items-center justify-center gap-4">
-        <Button variant="secondary">Add employee</Button>
-        <Button variant="primary">Process payroll</Button>
-      </section>
-
-      {/* Variants × Sizes grid */}
-      <section className="mb-[64px]">
-        <HeadingLG className="mb-6">Variants</HeadingLG>
-        <div className="border-t-4 border-[var(--foreground)] pt-[32px] overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-[var(--color-border-subtle)]">
-                <th className="text-compact-semibold text-left py-3 pr-8 w-[120px]"></th>
-                {SIZES.map(s => (
-                  <th key={s.id} className="text-compact-semibold text-left py-3 pr-8">{s.label}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {VARIANTS.map(v => (
-                <tr key={v.id} className="border-b border-[var(--color-border-subtle)]">
-                  <td className="text-compact-medium text-[var(--color-text-secondary)] py-5 pr-8 align-middle">{v.label}</td>
-                  {SIZES.map(s => (
-                    <td key={s.id} className="py-5 pr-8 align-middle">
-                      <Button variant={v.id} size={s.id}>Button</Button>
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      {/* ─── Hero ─────────────────────────────────────────────── */}
+      <section className="bg-[var(--color-bg-subtle)] px-[var(--spacing-64)] py-[var(--spacing-64)] min-h-[480px] flex items-center">
+        <div className="flex gap-[var(--spacing-64)] items-center w-full">
+          <div className="flex-1 min-w-0">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)] mb-[var(--spacing-16)]">
+              Component · Action
+            </p>
+            <h1 className="text-[5rem] font-semibold leading-[1] tracking-[-0.02em] text-[var(--color-text-default)] mb-[var(--spacing-24)]">
+              Button
+            </h1>
+            <p className="text-[1.125rem] leading-[1.7] text-[var(--color-text-secondary)] max-w-[440px]">
+              Buttons trigger actions or navigate users to another page. They come in multiple styles to guide users and emphasise key actions in a flow.
+            </p>
+          </div>
+          <div className="flex-none w-[340px] rounded-2xl bg-white border border-[var(--color-border-subtle)] p-[var(--spacing-48)] flex flex-col items-center justify-center gap-[var(--spacing-12)] min-h-[220px] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+            <Button variant="primary" size="large">Process payroll</Button>
+            <Button variant="secondary" size="large">Add employee</Button>
+          </div>
         </div>
       </section>
 
-      {/* With icons */}
-      <section className="mb-[64px]">
-        <HeadingLG className="mb-6">With icons</HeadingLG>
-        <div className="border-t-4 border-[var(--foreground)] pt-[32px]">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-[var(--color-border-subtle)]">
-                <th className="text-compact-semibold text-left py-3 pr-8 w-[120px]"></th>
-                <th className="text-compact-semibold text-left py-3 pr-8">Icon left</th>
-                <th className="text-compact-semibold text-left py-3 pr-8">Icon right</th>
-                <th className="text-compact-semibold text-left py-3">Icon only</th>
-              </tr>
-            </thead>
-            <tbody>
-              {VARIANTS.map(v => (
-                <tr key={v.id} className="border-b border-[var(--color-border-subtle)]">
-                  <td className="text-compact-medium text-[var(--color-text-secondary)] py-5 pr-8 align-middle">{v.label}</td>
-                  <td className="py-5 pr-8 align-middle">
-                    <Button variant={v.id} iconLeft={<Add size={18} />}>Button</Button>
-                  </td>
-                  <td className="py-5 pr-8 align-middle">
-                    <Button variant={v.id} iconRight={<ChevronRight size={18} />}>Button</Button>
-                  </td>
-                  <td className="py-5 align-middle">
-                    <Button variant={v.id} iconOnly><Settings size={18} /></Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
+      {/* ─── Content ──────────────────────────────────────────── */}
+      <div className="max-w-5xl mx-auto px-[var(--spacing-64)] py-[var(--spacing-80)]">
 
-      {/* States */}
-      <section className="mb-[64px]">
-        <HeadingLG className="mb-6">States</HeadingLG>
-        <div className="border-t-4 border-[var(--foreground)] pt-[32px] overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-[var(--color-border-subtle)]">
-                <th className="text-compact-semibold text-left py-3 pr-8 w-[120px]"></th>
-                <th className="text-compact-semibold text-left py-3 pr-8">Default</th>
-                <th className="text-compact-semibold text-left py-3 pr-8">Loading</th>
-                <th className="text-compact-semibold text-left py-3">Disabled</th>
-              </tr>
-            </thead>
-            <tbody>
-              {VARIANTS.map(v => (
-                <tr key={v.id} className="border-b border-[var(--color-border-subtle)]">
-                  <td className="text-compact-medium text-[var(--color-text-secondary)] py-5 pr-8 align-middle">{v.label}</td>
-                  <td className="py-5 pr-8 align-middle"><Button variant={v.id}>Button</Button></td>
-                  <td className="py-5 pr-8 align-middle"><Button variant={v.id} loading>Button</Button></td>
-                  <td className="py-5 align-middle"><Button variant={v.id} disabled>Button</Button></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
+        {/* ─── Variants ─────────────────────────────────────────── */}
+        <Section title="Variants" description="Five semantic variants to communicate intent and visual hierarchy across different contexts.">
+          <DemoTable
+            cols={SIZES.map(s => ({ key: s.id, label: s.label, sub: s.sub }))}
+            rows={VARIANTS.map(v => ({
+              label: v.label,
+              cells: SIZES.map(s => (
+                <Button key={s.id} variant={v.id} size={s.id}>Button</Button>
+              )),
+            }))}
+          />
+        </Section>
 
-      {/* Usage */}
-      <section className="mb-[64px]">
-        <HeadingLG className="mb-6">Usage</HeadingLG>
-        <div className="border-t-4 border-[var(--foreground)] pt-[32px]">
-          <div className="p-6 bg-[var(--color-bg-muted)] rounded-lg">
-            <pre className="text-compact-medium text-[var(--color-text-secondary)] overflow-x-auto">
-{`import { Button } from '@finity/design-system';
+        {/* ─── Icons ────────────────────────────────────────────── */}
+        <Section title="With icons" description="Buttons support leading icons, trailing icons, or icon-only variants for compact actions.">
+          <DemoTable
+            cols={[
+              { key: 'left',  label: 'Icon left' },
+              { key: 'right', label: 'Icon right' },
+              { key: 'only',  label: 'Icon only' },
+            ]}
+            rows={VARIANTS.map(v => ({
+              label: v.label,
+              cells: [
+                <Button key="l" variant={v.id} iconLeft={<Add size={18} />}>Button</Button>,
+                <Button key="r" variant={v.id} iconRight={<ChevronRight size={18} />}>Button</Button>,
+                <Button key="o" variant={v.id} iconOnly><Settings size={18} /></Button>,
+              ],
+            }))}
+          />
+        </Section>
+
+        {/* ─── States ───────────────────────────────────────────── */}
+        <Section title="States" description="Each variant supports loading and disabled states that preserve visual weight.">
+          <DemoTable
+            cols={[
+              { key: 'default',  label: 'Default' },
+              { key: 'loading',  label: 'Loading' },
+              { key: 'disabled', label: 'Disabled' },
+            ]}
+            rows={VARIANTS.map(v => ({
+              label: v.label,
+              cells: [
+                <Button key="d" variant={v.id}>Button</Button>,
+                <Button key="l" variant={v.id} loading>Button</Button>,
+                <Button key="x" variant={v.id} disabled>Button</Button>,
+              ],
+            }))}
+          />
+        </Section>
+
+        {/* ─── Usage ────────────────────────────────────────────── */}
+        <Section title="Usage" last>
+          <CodeBlock>{`import { Button } from '@finity/design-system';
 import { Add, ChevronRight } from '@finity/design-system';
 
 <Button variant="primary">Process payroll</Button>
@@ -144,14 +112,13 @@ import { Add, ChevronRight } from '@finity/design-system';
 
 <Button iconLeft={<Add size={18} />}>Add item</Button>
 <Button iconRight={<ChevronRight size={18} />}>Continue</Button>
-<Button iconOnly><Download size={18} /></Button>
+<Button iconOnly><Settings size={18} /></Button>
 
 <Button loading>Saving…</Button>
-<Button disabled>Unavailable</Button>`}
-            </pre>
-          </div>
-        </div>
-      </section>
+<Button disabled>Unavailable</Button>`}</CodeBlock>
+        </Section>
+
+      </div>
     </main>
   );
 }

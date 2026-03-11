@@ -84,6 +84,14 @@ export const Edit = createIcon(
   'Edit'
 );
 
+export const Flag = createIcon(
+  <>
+    <path d="M5 3V21" />
+    <path d="M5 4H18L15 8.5L18 13H5" />
+  </>,
+  'Flag'
+);
+
 // F
 export const File = createIcon(
   <>

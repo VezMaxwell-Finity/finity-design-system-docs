@@ -1,4 +1,4 @@
-import { HeadingLG } from '@/components/typography';
+import { Section } from '@/app/_components/doc';
 
 const colorScales = {
   grey: {
@@ -51,7 +51,7 @@ const colorScales = {
   },
   red: {
     label: 'Red / Error',
-    description: 'Red represents an error state and is used for destructive, invalid, or negative scenarios. For example, it can be used in the border of a failed entry.',
+    description: 'Red represents an error state and is used for destructive, invalid, or negative scenarios.',
     colors: [
       { shade: '50',  value: '#FEF2F2' },
       { shade: '100', value: '#FEE2E2' },
@@ -67,7 +67,7 @@ const colorScales = {
   },
   yellow: {
     label: 'Yellow / Warning',
-    description: 'Yellow is used to represent situations that are potentially destructive or that may need the attention of the user. These colors can be used in system notifications or general user guidance.',
+    description: 'Yellow is used to represent situations that are potentially destructive or that may need the attention of the user.',
     colors: [
       { shade: '50',  value: '#FEFCE8' },
       { shade: '100', value: '#FEF9C3' },
@@ -99,14 +99,6 @@ const colorScales = {
   },
 };
 
-function isDark(hex: string): boolean {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-  return luminance < 0.5;
-}
-
 function ColorSwatch({ shade, value }: { shade: string; value: string }) {
   return (
     <div className="flex flex-col gap-[var(--spacing-8)]">
@@ -115,8 +107,8 @@ function ColorSwatch({ shade, value }: { shade: string; value: string }) {
         style={{ backgroundColor: value, height: '80px' }}
       />
       <div className="flex flex-col gap-[var(--spacing-2)]">
-        <span className="text-compact-semibold">{shade}</span>
-        <span className="text-compact-medium text-[var(--color-text-tertiary)]">{value}</span>
+        <span className="text-[13px] font-semibold text-[var(--color-text-default)]">{shade}</span>
+        <span className="text-[12px] text-[var(--color-text-tertiary)]">{value}</span>
       </div>
     </div>
   );
@@ -134,9 +126,9 @@ function ColorScale({
 }) {
   return (
     <div>
-      <h3 className="text-compact-semibold mb-[var(--spacing-4)]">{scale.label}</h3>
+      <h3 className="text-[15px] font-semibold text-[var(--color-text-default)] mb-[var(--spacing-4)]">{scale.label}</h3>
       {scale.description && (
-        <p className="text-compact-medium text-[var(--color-text-secondary)] mb-[var(--spacing-16)]">
+        <p className="text-[14px] text-[var(--color-text-secondary)] mb-[var(--spacing-16)] leading-relaxed">
           {scale.description}
         </p>
       )}
@@ -151,11 +143,9 @@ function ColorScale({
             className="rounded-lg border border-[var(--color-border-subtle)] shrink-0"
             style={{ backgroundColor: scale.accent.value, width: '80px', height: '80px' }}
           />
-          <div className="flex flex-col gap-[var(--spacing-2)]">
-            <span className="text-compact-semibold">{scale.accent.name}</span>
-            <span className="text-compact-medium text-[var(--color-text-tertiary)]">
-              {scale.accent.value}
-            </span>
+          <div className="flex flex-col gap-[var(--spacing-4)]">
+            <span className="text-[13px] font-semibold text-[var(--color-text-default)]">{scale.accent.name}</span>
+            <span className="text-[12px] text-[var(--color-text-tertiary)]">{scale.accent.value}</span>
           </div>
         </div>
       )}
@@ -166,82 +156,68 @@ function ColorScale({
 export default function ColorsPage() {
   return (
     <main>
-      {/* Header */}
-      <header className="mb-[var(--spacing-48)]">
-        <p className="text-compact-medium text-[var(--color-text-tertiary)] mb-[var(--spacing-8)]">
-          Foundation
-        </p>
-        <h1 className="text-[3rem] font-semibold leading-tight mb-[var(--spacing-16)]">
-          Colours
-        </h1>
-        <p className="text-[1.5rem] font-medium text-[var(--color-text-secondary)] leading-relaxed">
-          Bringing the result of headline stories and groups, we use a defined colour palette
-          throughout our interfaces.
-        </p>
-      </header>
 
-      {/* Primary colours */}
-      <section className="mb-[var(--spacing-48)]">
-        <HeadingLG className="mb-[var(--spacing-16)]">Primary colours</HeadingLG>
-        <p className="text-compact-medium text-[var(--color-text-secondary)] mb-[var(--spacing-32)]">
-          These are the main colours within the style guide that make up the majority of the UI designs.
-          They are applied to support visual elements like elements, buttons icons, dividers, and for
-          backgrounds and fills.
-        </p>
-        <div className="border-t-4 border-[var(--foreground)] pt-[var(--spacing-32)] space-y-[var(--spacing-32)]">
+      {/* ─── Hero ──────────────────────────────────────────────── */}
+      <section className="bg-[var(--color-bg-subtle)] px-[var(--spacing-64)] py-[var(--spacing-64)] min-h-[480px] flex items-center">
+        <div className="w-full">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)] mb-[var(--spacing-16)]">
+            Foundation
+          </p>
+          <h1 className="text-[5rem] font-semibold leading-[1] tracking-[-0.02em] text-[var(--color-text-default)] mb-[var(--spacing-24)]">
+            Colours
+          </h1>
+          <p className="text-[1.125rem] leading-[1.7] text-[var(--color-text-secondary)] max-w-[560px]">
+            A defined colour palette brings consistency across all Finity products, from backgrounds and
+            text to interactive elements and semantic states.
+          </p>
+        </div>
+      </section>
 
-          {/* Base colour */}
-          <div>
-            <h3 className="text-compact-semibold mb-[var(--spacing-16)]">Base colour</h3>
-            <div className="flex gap-[var(--spacing-16)]">
-              {[
-                { label: 'Black', value: '#000000' },
-                { label: 'White', value: '#FFFFFF' },
-              ].map(({ label, value }) => (
-                <div key={label} className="flex flex-col gap-[var(--spacing-8)]">
-                  <div
-                    className="rounded-lg border border-[var(--color-border-subtle)]"
-                    style={{ backgroundColor: value, width: '120px', height: '80px' }}
-                  />
-                  <div className="flex flex-col gap-[var(--spacing-2)]">
-                    <span className="text-compact-semibold">{label}</span>
-                    <span className="text-compact-medium text-[var(--color-text-tertiary)]">{value}</span>
+      {/* ─── Content ───────────────────────────────────────────── */}
+      <div className="max-w-5xl mx-auto px-[var(--spacing-64)] py-[var(--spacing-80)]">
+
+        <Section title="Primary colours" description="The main colours that make up the majority of UI designs, applied to backgrounds, buttons, icons, and dividers.">
+          <div className="space-y-[var(--spacing-32)]">
+            <div>
+              <h3 className="text-[15px] font-semibold text-[var(--color-text-default)] mb-[var(--spacing-16)]">Base colour</h3>
+              <div className="flex gap-[var(--spacing-16)]">
+                {[
+                  { label: 'Black', value: '#000000' },
+                  { label: 'White', value: '#FFFFFF' },
+                ].map(({ label, value }) => (
+                  <div key={label} className="flex flex-col gap-[var(--spacing-8)]">
+                    <div
+                      className="rounded-lg border border-[var(--color-border-subtle)]"
+                      style={{ backgroundColor: value, width: '120px', height: '80px' }}
+                    />
+                    <div className="flex flex-col gap-[var(--spacing-4)]">
+                      <span className="text-[13px] font-semibold text-[var(--color-text-default)]">{label}</span>
+                      <span className="text-[12px] text-[var(--color-text-tertiary)]">{value}</span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
+            <ColorScale scale={colorScales.grey} />
           </div>
+        </Section>
 
-          {/* Neutral */}
-          <ColorScale scale={colorScales.grey} />
-        </div>
-      </section>
+        <Section title="Accent colours" description="Used to complement primary colours, primarily for interactive elements. Apply sparingly alongside primary colours.">
+          <div className="space-y-[var(--spacing-48)]">
+            <ColorScale scale={colorScales.coral} />
+            <ColorScale scale={colorScales.teal} />
+          </div>
+        </Section>
 
-      {/* Accent colours */}
-      <section className="mb-[var(--spacing-48)]">
-        <HeadingLG className="mb-[var(--spacing-16)]">Accent colours</HeadingLG>
-        <p className="text-compact-medium text-[var(--color-text-secondary)] mb-[var(--spacing-32)]">
-          Accent colours are used in complement to the primary colours within the UI, primarily for
-          interactive buttons. These colors should be applied sparingly as an accent alongside the primary colours.
-        </p>
-        <div className="border-t-4 border-[var(--foreground)] pt-[var(--spacing-32)] space-y-[var(--spacing-32)]">
-          <ColorScale scale={colorScales.coral} />
-          <ColorScale scale={colorScales.teal} />
-        </div>
-      </section>
+        <Section title="Semantic colours" description="Communicate status and feedback across the interface." last>
+          <div className="space-y-[var(--spacing-48)]">
+            <ColorScale scale={colorScales.red} />
+            <ColorScale scale={colorScales.yellow} />
+            <ColorScale scale={colorScales.green} />
+          </div>
+        </Section>
 
-      {/* Semantic colours */}
-      <section className="mb-[var(--spacing-48)]">
-        <HeadingLG className="mb-[var(--spacing-16)]">Semantic colours</HeadingLG>
-        <p className="text-compact-medium text-[var(--color-text-secondary)] mb-[var(--spacing-32)]">
-          Semantic colours can be used to communicate various statuses across the UI.
-        </p>
-        <div className="border-t-4 border-[var(--foreground)] pt-[var(--spacing-32)] space-y-[var(--spacing-32)]">
-          <ColorScale scale={colorScales.red} />
-          <ColorScale scale={colorScales.yellow} />
-          <ColorScale scale={colorScales.green} />
-        </div>
-      </section>
+      </div>
     </main>
   );
 }

@@ -2,7 +2,7 @@
 
 import { type InputHTMLAttributes, type ReactNode, forwardRef, useId } from 'react';
 import { Close } from '../icons';
-import { ErrorFilled, InfoFilled } from '../icons';
+import { HelperText } from '../helper-text';
 
 export type TextFieldSize = 'large' | 'medium';
 
@@ -132,19 +132,9 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
       </div>
 
       {(helperText || errorMessage) && (
-        <div
-          className={`flex items-start gap-[var(--spacing-8)] ${
-            hasError ? 'text-[var(--color-red-600)]' : 'text-[var(--color-text-secondary)]'
-          }`}
-        >
-          {hasError
-            ? <ErrorFilled size={16} color="var(--color-red-600)" className="shrink-0 mt-[var(--spacing-2)]" />
-            : <InfoFilled size={16} color="var(--color-teal-500)" className="shrink-0 mt-[var(--spacing-2)]" />
-          }
-          <p className="text-sm font-medium leading-[var(--line-height-compact)] tracking-[var(--letter-spacing-wide)]">
-            {errorMessage || helperText}
-          </p>
-        </div>
+        <HelperText type={hasError ? 'error' : 'default'}>
+          {errorMessage || helperText}
+        </HelperText>
       )}
     </div>
   );
