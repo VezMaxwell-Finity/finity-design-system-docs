@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Section, CodeBlock } from '@/app/_components/doc';
-import { TextArea } from '@/components/text-area';
+import { TextArea } from '@finity/design-system';
 
 export default function TextAreaPage() {
   const [liveValue,    setLiveValue]    = useState('');

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Section, CodeBlock } from '@/app/_components/doc';
-import { SearchField } from '@/components/search-field';
+import { SearchField } from '@finity/design-system';
 
 export default function SearchFieldPage() {
   const [liveValue, setLiveValue] = useState('');

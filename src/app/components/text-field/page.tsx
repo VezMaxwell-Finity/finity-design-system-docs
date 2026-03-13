@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Section, CodeBlock } from '@/app/_components/doc';
-import { TextField } from '@/components/text-field';
+import { TextField } from '@finity/design-system';
 
 export default function TextFieldPage() {
   const [emailValue, setEmailValue] = useState('user@finity.co.uk');

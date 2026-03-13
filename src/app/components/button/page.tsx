@@ -1,5 +1,5 @@
-import { Button } from '@/components/button';
-import { Add, ChevronRight, Settings } from '@/components/icons';
+import { Button } from '@finity/design-system';
+import { Add, ChevronRight, Settings } from '@finity/design-system';
 import { Section, DemoTable, CodeBlock } from '@/app/_components/doc';
 
 const VARIANTS = [

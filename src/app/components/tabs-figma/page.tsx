@@ -1,6 +1,6 @@
 'use client';
 
-import { FigmaTabs } from '@/components/tabs/FigmaTabs';
+import { FigmaTabs } from '@finity/design-system';
 
 export default function TabsFigmaPage() {
   return (

@@ -1,5 +1,5 @@
 import { Section, CodeBlock } from '@/app/_components/doc';
-import { MobileNumberField } from '@/components/mobile-number-field';
+import { MobileNumberField } from '@finity/design-system';
 
 export default function MobileNumberFieldPage() {
   return (

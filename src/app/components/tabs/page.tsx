@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Section, CodeBlock } from '@/app/_components/doc';
-import { Tabs } from '@/components/tabs';
+import { Tabs } from '@finity/design-system';
 
 const DEMO_TABS: { id: string; label: string; badge?: number }[] = [
   { id: 'overview',   label: 'Overview' },

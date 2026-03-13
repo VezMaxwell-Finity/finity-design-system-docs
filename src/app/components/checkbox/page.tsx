@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Section, DemoTable, CodeBlock } from '@/app/_components/doc';
-import { Checkbox } from '@/components/checkbox';
+import { Checkbox } from '@finity/design-system';
 
 const STATES = [
   { key: 'default',       label: 'Default',       props: {} },

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Section, CodeBlock } from '@/app/_components/doc';
-import { DateOfBirthField, type DateOfBirthValue } from '@/components/date-of-birth-field';
+import { DateOfBirthField, type DateOfBirthValue } from '@finity/design-system';
 
 const empty: DateOfBirthValue = { day: '', month: '', year: '' };
 

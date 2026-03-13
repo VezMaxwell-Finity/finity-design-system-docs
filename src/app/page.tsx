@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { Button } from '@/components/button';
-import { Add, ChevronRight, Settings } from '@/components/icons';
+import { Button } from '@finity/design-system';
+import { Add, ChevronRight, Settings } from '@finity/design-system';
 
 const FOUNDATIONS = [
   { href: '/colors',  title: 'Colours',  description: 'Palette and semantic colour tokens used across all Finity interfaces.' },

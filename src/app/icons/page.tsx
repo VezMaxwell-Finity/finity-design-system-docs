@@ -1,5 +1,5 @@
 import { Section, CodeBlock } from '@/app/_components/doc';
-import * as Icons from '@/components/icons';
+import * as Icons from '@finity/design-system';
 
 const arrowIcons = [
   { name: 'ArrowUp', component: Icons.ArrowUp },

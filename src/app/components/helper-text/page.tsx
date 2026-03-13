@@ -1,6 +1,6 @@
 import { Section, DemoTable, CodeBlock } from '@/app/_components/doc';
-import { HelperText } from '@/components/helper-text';
-import { TextField } from '@/components/text-field';
+import { HelperText } from '@finity/design-system';
+import { TextField } from '@finity/design-system';
 
 const VARIANTS = [
   { type: 'default',  label: 'Default'  },

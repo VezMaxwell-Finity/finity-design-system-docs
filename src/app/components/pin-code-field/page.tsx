@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Section, CodeBlock } from '@/app/_components/doc';
-import { PinCodeField } from '@/components/pin-code-field';
+import { PinCodeField } from '@finity/design-system';
 
 export default function PinCodeFieldPage() {
   const [liveValue, setLiveValue] = useState('');
