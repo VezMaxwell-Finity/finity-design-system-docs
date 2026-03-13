@@ -40,7 +40,7 @@ export default function TabsPage() {
               Tabs let users switch between related views while keeping context within a single surface.
             </p>
           </div>
-          <div className="flex-none w-[400px] rounded-2xl bg-white border border-[var(--color-border-subtle)] p-[var(--spacing-32)] flex flex-col gap-[var(--spacing-16)] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+          <div className="flex-none w-[400px] rounded-2xl bg-[var(--color-base-white)] border border-[var(--color-border-subtle)] p-[var(--spacing-32)] flex flex-col gap-[var(--spacing-16)] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
             <Tabs items={DEMO_TABS} value={heroTab} onChange={setHeroTab} />
             <div className="rounded-lg border border-[var(--color-border-subtle)] p-[var(--spacing-20)]">
               <p className="text-[14px] font-semibold text-[var(--color-text-default)] mb-[var(--spacing-4)]">

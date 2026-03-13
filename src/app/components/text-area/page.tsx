@@ -26,7 +26,7 @@ export default function TextAreaPage() {
               A multi-line input field for longer, free-form text entry — ideal for comments, messages, or detailed descriptions.
             </p>
           </div>
-          <div className="flex-none w-[300px] rounded-2xl bg-white border border-[var(--color-border-subtle)] p-[var(--spacing-32)] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+          <div className="flex-none w-[300px] rounded-2xl bg-[var(--color-base-white)] border border-[var(--color-border-subtle)] p-[var(--spacing-32)] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
             <TextArea
               label="Note"
               placeholder="Add a note…"

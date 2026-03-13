@@ -35,7 +35,7 @@ export default function CheckboxPage() {
               Checkboxes allow users to select one or more items from a set, supporting checked, unchecked, and indeterminate states.
             </p>
           </div>
-          <div className="flex-none w-[340px] rounded-2xl bg-white border border-[var(--color-border-subtle)] p-[var(--spacing-32)] flex flex-col gap-[var(--spacing-12)] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+          <div className="flex-none w-[340px] rounded-2xl bg-[var(--color-base-white)] border border-[var(--color-border-subtle)] p-[var(--spacing-32)] flex flex-col gap-[var(--spacing-12)] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
             <p className="text-[14px] font-medium text-[var(--color-text-secondary)] mb-[var(--spacing-4)]">Select newsletters to receive:</p>
             <Checkbox label="Company updates and announcements" checked={updates} onChange={(e) => setUpdates(e.target.checked)} />
             <Checkbox label="Product news and feature releases" checked={products} onChange={(e) => setProducts(e.target.checked)} />

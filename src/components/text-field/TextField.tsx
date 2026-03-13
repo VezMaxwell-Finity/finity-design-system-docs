@@ -57,7 +57,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
       {label && (
         <label
           htmlFor={inputId}
-          className="text-base font-medium leading-[var(--line-height-body)] tracking-[var(--letter-spacing-normal)] text-[var(--color-text-secondary)]"
+          className="text-body-medium text-[var(--color-text-secondary)]"
         >
           {label}
         </label>
@@ -69,7 +69,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
           transition-colors duration-150
           ${heights[size]}
           ${borderClass}
-          ${disabled ? 'bg-[var(--color-grey-100)]' : 'bg-white'}
+          ${disabled ? 'bg-[var(--color-grey-100)]' : 'bg-[var(--color-base-white)]'}
         `}
       >
         {prefix && (
@@ -77,7 +77,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
             className={`
               flex items-center justify-center shrink-0 h-full px-[var(--spacing-12)]
               bg-[var(--color-grey-100)] border-r border-[var(--color-border-subtle)]
-              text-base font-medium leading-[var(--line-height-body)] tracking-[var(--letter-spacing-normal)]
+              text-body-medium
               text-[var(--color-text-secondary)]
             `}
           >
@@ -92,7 +92,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
           disabled={disabled}
           className={`
             flex-1 min-w-0 h-full bg-transparent outline-none px-[var(--spacing-12)]
-            text-base font-normal leading-[var(--line-height-body)] tracking-[var(--letter-spacing-normal)]
+            text-body-regular
             text-[var(--color-text-default)]
             placeholder:text-[var(--color-text-disabled)]
             disabled:cursor-not-allowed disabled:text-[var(--color-text-disabled)]
@@ -122,7 +122,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
             className={`
               flex items-center justify-center shrink-0 h-full px-[var(--spacing-12)]
               border-l border-[var(--color-border-subtle)]
-              text-base font-medium leading-[var(--line-height-body)] tracking-[var(--letter-spacing-normal)]
+              text-body-medium
               text-[var(--color-text-secondary)]
             `}
           >

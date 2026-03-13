@@ -33,15 +33,15 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     const textareaClass = [
       'w-full min-h-[80px] rounded-lg border border-solid outline-none resize-y',
       'px-[var(--spacing-12)] pt-[var(--spacing-8)] pb-[var(--spacing-8)]',
-      'text-base font-normal leading-[var(--line-height-body)] tracking-[var(--letter-spacing-normal)]',
+      'text-body-regular',
       'placeholder:text-[var(--color-text-tertiary)]',
       'transition-colors duration-150',
       hasError
-        ? 'border-2 border-[var(--color-red-600)] bg-white text-[var(--color-text-default)]'
+        ? 'border-2 border-[var(--color-red-600)] bg-[var(--color-base-white)] text-[var(--color-text-default)]'
         : readOnly || disabled
         ? 'border border-[var(--color-border-subtle)] bg-[var(--color-grey-100)] text-[var(--color-text-secondary)] resize-none cursor-default'
         : [
-            'border-[var(--color-border-default)] bg-white text-[var(--color-text-default)]',
+            'border-[var(--color-border-default)] bg-[var(--color-base-white)] text-[var(--color-text-default)]',
             'hover:border-2 hover:border-[var(--color-text-default)]',
             'focus:border-[3px] focus:border-[var(--color-text-default)]',
           ].join(' '),
@@ -54,12 +54,12 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         {(label || maxLength) && (
           <div className="flex items-center justify-between gap-[var(--spacing-4)]">
             {label && (
-              <label className="text-base font-medium leading-[var(--line-height-body)] tracking-[var(--letter-spacing-normal)] text-[var(--color-text-secondary)]">
+              <label className="text-body-medium text-[var(--color-text-secondary)]">
                 {label}
               </label>
             )}
             {maxLength && (
-              <span className="text-sm font-medium leading-[var(--line-height-compact)] tracking-[var(--letter-spacing-wide)] text-[var(--color-text-secondary)] tabular-nums">
+              <span className="text-compact-medium text-[var(--color-text-secondary)] tabular-nums">
                 {charCount}/{maxLength}
               </span>
             )}

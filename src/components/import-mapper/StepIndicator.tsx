@@ -44,7 +44,7 @@ export function StepIndicator({ currentStep }: StepIndicatorProps) {
                 />
                 {/* Number sits centered over the dot, overflows intentionally */}
                 <span
-                  className={`absolute text-[12px] leading-[16px] font-semibold tracking-[0.3px] whitespace-nowrap pointer-events-none ${
+                  className={`absolute text-[12px] leading-[var(--line-height-small)] font-semibold tracking-[var(--letter-spacing-wide)] whitespace-nowrap pointer-events-none ${
                     isDone || isActive
                       ? 'text-white'
                       : 'text-[var(--color-text-tertiary)]'

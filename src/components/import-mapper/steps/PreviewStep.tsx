@@ -21,8 +21,8 @@ export function PreviewStep({ parsedFile, onNext, onBack }: PreviewStepProps) {
       <div className="flex items-center gap-4 p-4 rounded-xl bg-[var(--color-bg-subtle)] border border-[var(--color-grey-200)]">
         <div className="w-10 h-10 rounded-lg bg-[var(--color-grey-900)] flex items-center justify-center flex-shrink-0">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M4 2H13L17 6V18C17 18.55 16.55 19 16 19H4C3.45 19 3 18.55 3 18V3C3 2.45 3.45 2 4 2Z" fill="white" fillOpacity="0.15" stroke="white" strokeWidth="1.5"/>
-            <path d="M13 2V6H17" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+            <path d="M4 2H13L17 6V18C17 18.55 16.55 19 16 19H4C3.45 19 3 18.55 3 18V3C3 2.45 3.45 2 4 2Z" fill="var(--color-base-white)" fillOpacity="0.15" stroke="var(--color-base-white)" strokeWidth="1.5"/>
+            <path d="M13 2V6H17" stroke="var(--color-base-white)" strokeWidth="1.5" strokeLinecap="round"/>
           </svg>
         </div>
         <div className="flex-1 min-w-0">

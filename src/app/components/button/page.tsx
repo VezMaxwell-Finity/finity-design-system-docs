@@ -34,7 +34,7 @@ export default function ButtonPage() {
               Buttons trigger actions or navigate users to another page. They come in multiple styles to guide users and emphasise key actions in a flow.
             </p>
           </div>
-          <div className="flex-none w-[340px] rounded-2xl bg-white border border-[var(--color-border-subtle)] p-[var(--spacing-48)] flex flex-col items-center justify-center gap-[var(--spacing-12)] min-h-[220px] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+          <div className="flex-none w-[340px] rounded-2xl bg-[var(--color-base-white)] border border-[var(--color-border-subtle)] p-[var(--spacing-48)] flex flex-col items-center justify-center gap-[var(--spacing-12)] min-h-[220px] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
             <Button variant="primary" size="large">Process payroll</Button>
             <Button variant="secondary" size="large">Add employee</Button>
           </div>

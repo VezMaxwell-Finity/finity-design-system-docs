@@ -34,14 +34,14 @@ export function DateOfBirthField({
   const hasError = !!errorMessage;
 
   const slotClass = hasError
-    ? 'border-2 border-[var(--color-red-600)] bg-white'
+    ? 'border-2 border-[var(--color-red-600)] bg-[var(--color-base-white)]'
     : disabled
     ? 'border border-[var(--color-border-subtle)] bg-[var(--color-grey-100)]'
-    : 'border border-[var(--color-border-default)] bg-white focus-within:border-2 focus-within:border-[var(--color-text-default)]';
+    : 'border border-[var(--color-border-default)] bg-[var(--color-base-white)] focus-within:border-2 focus-within:border-[var(--color-text-default)]';
 
   const inputClass = `
     w-full h-full bg-transparent outline-none px-[var(--spacing-12)]
-    text-base font-normal leading-[var(--line-height-body)] tracking-[var(--letter-spacing-normal)]
+    text-body-regular
     text-[var(--color-text-default)]
     placeholder:text-[var(--color-text-disabled)]
     disabled:cursor-not-allowed disabled:text-[var(--color-text-disabled)]
@@ -50,7 +50,7 @@ export function DateOfBirthField({
   return (
     <div className={`flex flex-col gap-[var(--spacing-4)] ${className}`}>
       {label && (
-        <label className="text-base font-medium leading-[var(--line-height-body)] tracking-[var(--letter-spacing-normal)] text-[var(--color-text-secondary)]">
+        <label className="text-body-medium text-[var(--color-text-secondary)]">
           {label}
         </label>
       )}

@@ -36,12 +36,12 @@ export function PinCodeField({
 
   const getSlotClass = () => {
     if (hasError) {
-      return `${slotDimension} rounded-lg border-2 border-solid border-[var(--color-red-600)] bg-white`;
+      return `${slotDimension} rounded-lg border-2 border-solid border-[var(--color-red-600)] bg-[var(--color-base-white)]`;
     }
     if (disabled || readOnly) {
       return `${slotDimension} rounded-lg border border-solid border-[var(--color-border-subtle)] bg-[var(--color-grey-100)]`;
     }
-    return `${slotDimension} rounded-lg border border-solid border-[var(--color-border-default)] bg-white focus:border-[3px] focus:border-[var(--color-text-default)] outline-none`;
+    return `${slotDimension} rounded-lg border border-solid border-[var(--color-border-default)] bg-[var(--color-base-white)] focus:border-[3px] focus:border-[var(--color-text-default)] outline-none`;
   };
 
   const handleChange = (index: number, e: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,7 +74,7 @@ export function PinCodeField({
   const sharedInputClass = `
     ${getSlotClass()}
     flex items-center justify-center
-    text-center font-semibold text-[20px] leading-[28px] tracking-[0.2px]
+    text-center font-semibold text-[20px] leading-[28px] tracking-[var(--letter-spacing-tight)]
     text-[var(--color-text-default)]
     transition-colors duration-150
     ${disabled || readOnly ? 'cursor-not-allowed' : ''}

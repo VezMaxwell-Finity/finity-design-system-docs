@@ -35,7 +35,7 @@ export function HelperText({ type = 'default', children, className = '' }: Helpe
     <div className={`flex items-start gap-[var(--spacing-4)] ${className}`}>
       <span className="shrink-0 mt-[var(--spacing-2)]">{icon}</span>
       <p
-        className={`text-sm font-medium leading-[var(--line-height-compact)] tracking-[var(--letter-spacing-wide)] ${textClass}`}
+        className={`text-compact-medium ${textClass}`}
       >
         {children}
       </p>

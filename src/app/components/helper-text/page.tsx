@@ -27,7 +27,7 @@ export default function HelperTextPage() {
               Brief guidance or context below a field to help users understand what information is needed or how it will be used.
             </p>
           </div>
-          <div className="flex-none w-[340px] rounded-2xl bg-white border border-[var(--color-border-subtle)] p-[var(--spacing-48)] flex flex-col items-start justify-center gap-[var(--spacing-16)] min-h-[220px] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+          <div className="flex-none w-[340px] rounded-2xl bg-[var(--color-base-white)] border border-[var(--color-border-subtle)] p-[var(--spacing-48)] flex flex-col items-start justify-center gap-[var(--spacing-16)] min-h-[220px] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
             <HelperText>We&apos;ll never share your email.</HelperText>
             <HelperText type="error">This field is required.</HelperText>
             <HelperText type="success">Changes saved successfully.</HelperText>

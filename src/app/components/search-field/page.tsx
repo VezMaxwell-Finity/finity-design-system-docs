@@ -24,7 +24,7 @@ export default function SearchFieldPage() {
               A single-line input for entering keywords or phrases to find matching content within a system.
             </p>
           </div>
-          <div className="flex-none w-[340px] rounded-2xl bg-white border border-[var(--color-border-subtle)] p-[var(--spacing-48)] flex flex-col items-center justify-center min-h-[180px] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+          <div className="flex-none w-[340px] rounded-2xl bg-[var(--color-base-white)] border border-[var(--color-border-subtle)] p-[var(--spacing-48)] flex flex-col items-center justify-center min-h-[180px] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
             <SearchField
               placeholder="Search employees…"
               value={liveValue}

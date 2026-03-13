@@ -18,14 +18,14 @@ const NAV = [
     items: [
       { href: '/components/button', label: 'Button' },
       { href: '/components/tabs', label: 'Tabs' },
-      { href: '/components/text-field', label: 'Text Field' },
-      { href: '/components/helper-text', label: 'Helper Text' },
-      { href: '/components/search-field', label: 'Search Field' },
-      { href: '/components/text-area', label: 'Text Area' },
+      { href: '/components/text-field', label: 'Text field' },
+      { href: '/components/helper-text', label: 'Helper text' },
+      { href: '/components/search-field', label: 'Search field' },
+      { href: '/components/text-area', label: 'Text area' },
       { href: '/components/checkbox', label: 'Checkbox' },
-      { href: '/components/date-of-birth-field', label: 'Date of Birth' },
-      { href: '/components/mobile-number-field', label: 'Mobile Number' },
-      { href: '/components/pin-code-field', label: 'Pin Code' },
+      { href: '/components/date-of-birth-field', label: 'Date of birth' },
+      { href: '/components/mobile-number-field', label: 'Mobile number' },
+      { href: '/components/pin-code-field', label: 'PIN code' },
     ],
   },
 ];
@@ -40,7 +40,7 @@ export function Sidebar() {
         <div className="flex items-center justify-center shrink-0 size-[32px] bg-[var(--color-coral-finity)] rounded-[4px]">
           <span className="text-white text-[14px] font-bold leading-none">F</span>
         </div>
-        <span className="text-white text-[18px] font-semibold tracking-[0.2px] leading-[24px]">
+        <span className="text-white text-[18px] font-semibold tracking-[var(--letter-spacing-tight)] leading-[var(--line-height-body)]">
           Finity DS
         </span>
       </div>
@@ -50,7 +50,7 @@ export function Sidebar() {
         {NAV.map(({ section, items }) => (
           <div key={section} className="flex flex-col">
             <div className="flex items-center h-[32px] px-[var(--spacing-8)]">
-              <span className="text-[12px] font-semibold uppercase tracking-[0.3px] leading-[16px] text-[var(--color-grey-400)]">
+              <span className="text-[12px] font-semibold uppercase tracking-[var(--letter-spacing-wide)] leading-[var(--line-height-small)] text-[var(--color-grey-400)]">
                 {section}
               </span>
             </div>
@@ -63,7 +63,7 @@ export function Sidebar() {
                     href={href}
                     className={`
                       flex items-center h-[40px] px-[var(--spacing-8)] rounded-lg
-                      text-[14px] tracking-[0.3px] leading-[20px]
+                      text-[14px] tracking-[var(--letter-spacing-wide)] leading-[var(--line-height-compact)]
                       transition-colors duration-100
                       hover:bg-white/5
                       ${isActive
@@ -83,7 +83,7 @@ export function Sidebar() {
 
       {/* Version */}
       <div className="flex items-center justify-center h-[64px] shrink-0 border-t border-[var(--color-grey-600)]">
-        <span className="text-[12px] text-[var(--color-grey-400)] tracking-[0.3px]">
+        <span className="text-[12px] text-[var(--color-grey-400)] tracking-[var(--letter-spacing-wide)]">
           Finity Design System
         </span>
       </div>

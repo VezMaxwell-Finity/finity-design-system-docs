@@ -34,7 +34,7 @@ export const MobileNumberField = forwardRef<HTMLInputElement, MobileNumberFieldP
     return (
       <div className={`flex flex-col gap-[var(--spacing-8)] w-full ${className}`}>
         {label && (
-          <label className="text-base font-medium leading-[var(--line-height-body)] tracking-[var(--letter-spacing-normal)] text-[var(--color-text-secondary)]">
+          <label className="text-body-medium text-[var(--color-text-secondary)]">
             {label}
           </label>
         )}
@@ -45,11 +45,11 @@ export const MobileNumberField = forwardRef<HTMLInputElement, MobileNumberFieldP
             h-[var(--spacing-48)]
             transition-colors duration-150
             ${borderClass}
-            ${disabled ? 'bg-[var(--color-grey-100)]' : 'bg-white'}
+            ${disabled ? 'bg-[var(--color-grey-100)]' : 'bg-[var(--color-base-white)]'}
           `}
         >
           <div className="flex items-center justify-center shrink-0 h-full px-[var(--spacing-12)] bg-[var(--color-grey-100)] border-r border-[var(--color-border-default)]">
-            <span className="text-base font-medium leading-[var(--line-height-body)] tracking-[var(--letter-spacing-normal)] text-[var(--color-text-secondary)] w-[var(--spacing-32)] text-center">
+            <span className="text-body-medium text-[var(--color-text-secondary)] w-[var(--spacing-32)] text-center">
               {dialCode}
             </span>
           </div>
@@ -61,7 +61,7 @@ export const MobileNumberField = forwardRef<HTMLInputElement, MobileNumberFieldP
             disabled={disabled}
             className={`
               flex-1 min-w-0 h-full bg-transparent outline-none px-[var(--spacing-12)]
-              text-base font-normal leading-[var(--line-height-body)] tracking-[var(--letter-spacing-normal)]
+              text-body-regular
               text-[var(--color-text-default)]
               placeholder:text-[var(--color-text-disabled)]
               disabled:cursor-not-allowed disabled:text-[var(--color-text-disabled)]

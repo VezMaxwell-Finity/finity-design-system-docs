@@ -26,7 +26,7 @@ export default function TextFieldPage() {
               A single-line input field for capturing concise, short-form textual data.
             </p>
           </div>
-          <div className="flex-none w-[300px] rounded-2xl bg-white border border-[var(--color-border-subtle)] p-[var(--spacing-32)] flex flex-col gap-[var(--spacing-16)] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+          <div className="flex-none w-[300px] rounded-2xl bg-[var(--color-base-white)] border border-[var(--color-border-subtle)] p-[var(--spacing-32)] flex flex-col gap-[var(--spacing-16)] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
             <TextField
               label="Email address"
               placeholder="you@example.com"

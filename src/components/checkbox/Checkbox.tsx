@@ -58,8 +58,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         : isActive
         ? 'bg-[var(--color-coral-400)] border-[var(--color-coral-400)]'
         : error
-        ? 'bg-white border-2 border-[var(--color-red-600)]'
-        : 'bg-white border-[var(--color-border-default)] group-hover:border-2 group-hover:border-[var(--color-text-default)]',
+        ? 'bg-[var(--color-base-white)] border-2 border-[var(--color-red-600)]'
+        : 'bg-[var(--color-base-white)] border-[var(--color-border-default)] group-hover:border-2 group-hover:border-[var(--color-text-default)]',
     ]
       .filter(Boolean)
       .join(' ');
@@ -85,7 +85,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             <svg viewBox="0 0 12 12" width="12" height="12" fill="none" aria-hidden="true">
               <path
                 d="M1.5 6L4.5 9L10.5 3"
-                stroke="white"
+                stroke="var(--color-base-white)"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -94,14 +94,14 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           )}
           {indeterminate && (
             <svg viewBox="0 0 12 12" width="12" height="12" fill="none" aria-hidden="true">
-              <path d="M1.5 6H10.5" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M1.5 6H10.5" stroke="var(--color-base-white)" strokeWidth="2.5" strokeLinecap="round" />
             </svg>
           )}
         </div>
 
         {label && (
           <span
-            className={`flex-1 text-base font-normal leading-[var(--line-height-body)] tracking-[var(--letter-spacing-normal)] mt-[1px] ${
+            className={`flex-1 text-body-regular mt-[1px] ${
               disabled ? 'text-[var(--color-text-tertiary)]' : 'text-[var(--color-text-default)]'
             }`}
           >

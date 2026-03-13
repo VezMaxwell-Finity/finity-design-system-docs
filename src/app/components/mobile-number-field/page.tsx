@@ -19,7 +19,7 @@ export default function MobileNumberFieldPage() {
               A telephone input with a fixed dial code prefix, optimised for mobile number entry across different regions.
             </p>
           </div>
-          <div className="flex-none w-[300px] rounded-2xl bg-white border border-[var(--color-border-subtle)] p-[var(--spacing-48)] flex items-center justify-center min-h-[180px] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+          <div className="flex-none w-[300px] rounded-2xl bg-[var(--color-base-white)] border border-[var(--color-border-subtle)] p-[var(--spacing-48)] flex items-center justify-center min-h-[180px] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
             <MobileNumberField placeholder="07700 900000" className="w-full" />
           </div>
         </div>

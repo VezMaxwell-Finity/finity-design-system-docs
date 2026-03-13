@@ -24,7 +24,7 @@ export default function PinCodeFieldPage() {
               A segmented OTP/PIN input with automatic focus advancement, backspace navigation, and paste support.
             </p>
           </div>
-          <div className="flex-none w-[340px] rounded-2xl bg-white border border-[var(--color-border-subtle)] p-[var(--spacing-48)] flex items-center justify-center min-h-[180px] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+          <div className="flex-none w-[340px] rounded-2xl bg-[var(--color-base-white)] border border-[var(--color-border-subtle)] p-[var(--spacing-48)] flex items-center justify-center min-h-[180px] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
             <PinCodeField length={6} value={liveValue} onChange={setLiveValue} />
           </div>
         </div>

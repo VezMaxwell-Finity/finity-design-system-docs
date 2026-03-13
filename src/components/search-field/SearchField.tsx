@@ -35,7 +35,7 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
           value={value}
           className="
             flex-1 min-w-0 h-full bg-transparent outline-none
-            text-base font-normal leading-[var(--line-height-body)] tracking-[var(--letter-spacing-normal)]
+            text-body-regular
             text-[var(--color-text-default)]
             placeholder:text-[var(--color-text-tertiary)]
           "
